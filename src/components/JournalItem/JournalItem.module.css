@@ -1,0 +1,40 @@
+.journal_item {
+	display: flex;
+	flex-direction: column;
+	gap: var(--s-3);
+	align-items: flex-start;
+	justify-content: flex-start;
+
+	width: 362px;
+	padding: var(--s-5);
+
+	background: var(--background-secondary);
+	border-radius: var(--s-1);
+}
+
+.title {
+	font: var(--font-h2);
+	color: var(--text-primary);
+}
+
+.body {
+	display: flex;
+	gap: var(--s-3);
+	align-items: flex-start;
+	justify-content: flex-start;
+
+	width: 100%;
+
+	font: var(--font-p2);
+}
+
+.date {
+	color: var(--text-tertiary);
+}
+
+.text {
+	overflow-x: hidden;
+	color: var(--text-secondary);
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}

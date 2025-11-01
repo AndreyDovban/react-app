@@ -14,9 +14,12 @@
 	text-align: center;
 
 	background: #312eb5;
+	border: none;
 	border-radius: 6px;
+
+	transition: background 0.25s;
 }
 
 .button:hover {
-	border-color: #646cff;
+	background: #1a1877;
 }

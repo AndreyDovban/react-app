@@ -1,11 +1,13 @@
 :root {
 	--font-family: 'Source Sans Pro', sans-serif;
+	--background-primary: #181818;
+	--background-secondary: #ffffff08;
+	--background-tertiary: #ffffff1a;
 	--text-primary: #fff;
 	--text-secondary: #fff9;
 	--text-tertiary: #fff6;
 	--font-h1: 600 32px var(--font-family);
-	--font-h2: 600 24px var(--font-family);
-	--font-h3: 600 18px / 1.5 var(--font-family);
+	--font-h2: 600 18px / 1.5 var(--font-family);
 	--font-p1: 600 16px / 1.75 var(--font-family);
 	--font-p2: 400 16px / 1.75 var(--font-family);
 	--font-p3: 600 14px / 1.5 var(--font-family);
@@ -26,7 +28,7 @@
 	text-rendering: optimizelegibility;
 
 	color-scheme: light dark;
-	background: #181818;
+	background: var(--background-primary);
 
 	font-synthesis: none;
 }

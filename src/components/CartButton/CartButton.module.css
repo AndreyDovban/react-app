@@ -1,0 +1,20 @@
+.cart_button {
+	cursor: pointer;
+
+	display: flex;
+	flex-direction: column;
+	gap: var(--s-3);
+	align-items: flex-start;
+	justify-content: flex-start;
+
+	width: 362px;
+	padding: var(--s-5);
+
+	background: var(--background-secondary);
+	border: none;
+	border-radius: var(--s-1);
+}
+
+.cart_button:hover {
+	background: var(--background-tertiary);
+}
