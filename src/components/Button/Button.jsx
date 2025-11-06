@@ -1,5 +1,5 @@
 import styles from './Button.module.css';
 
-export function Button() {
-	return <button className={styles.button}>Сохранить</button>;
+export function Button({ text }) {
+	return <button className={styles.button}>{text}</button>;
 }

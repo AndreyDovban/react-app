@@ -1,0 +1,8 @@
+.left_panel {
+	display: flex;
+	flex-direction: column;
+	gap: var(--s-6);
+
+	width: 400px;
+	padding: var(--s-6) var(--s-5);
+}

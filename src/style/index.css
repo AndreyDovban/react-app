@@ -1,5 +1,7 @@
+@import url('_fonts.css');
+
 :root {
-	--font-family: 'Source Sans Pro', sans-serif;
+	--font-family: 'Inter', sans-serif;
 	--background-primary: #181818;
 	--background-secondary: #ffffff08;
 	--background-tertiary: #ffffff1a;
@@ -20,6 +22,7 @@
 	--s-6: 32px;
 	--s-7: 48px;
 
+	font-family: var(--font-family);
 	font-weight: 400;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -36,13 +39,4 @@
 * {
 	margin: 0;
 	padding: 0;
-}
-
-body {
-	display: flex;
-	place-items: center;
-
-	min-width: 320px;
-	min-height: 100vh;
-	margin: 0;
 }

@@ -18,8 +18,13 @@
 	border-radius: 6px;
 
 	transition: background 0.25s;
+	transition: box-shadow 0.1s;
 }
 
 .button:hover {
 	background: #1a1877;
+}
+
+.button:active {
+	box-shadow: inset 0 0 4px #bdb1b1;
 }

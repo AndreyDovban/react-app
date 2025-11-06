@@ -1,0 +1,10 @@
+.journal_add_button {
+	flex-direction: row;
+	gap: var(--s-2);
+	align-items: center;
+	justify-content: center;
+
+	padding: var(--s-3);
+
+	font: var(--font-p1);
+}
