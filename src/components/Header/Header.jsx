@@ -1,6 +1,6 @@
-// import styles from './Header.module.css';
+import styles from './Header.module.css';
 import Logo from '../../assets/svg/logo.svg?react';
 
 export function Header() {
-	return <Logo />;
+	return <Logo className={styles.logo} />;
 }

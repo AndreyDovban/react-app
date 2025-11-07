@@ -22,6 +22,8 @@
 	--s-6: 32px;
 	--s-7: 48px;
 
+	height: 100%;
+
 	font-family: var(--font-family);
 	font-weight: 400;
 	-webkit-font-smoothing: antialiased;
@@ -34,6 +36,12 @@
 	background: var(--background-primary);
 
 	font-synthesis: none;
+}
+
+html,
+body,
+#root {
+	height: 100%;
 }
 
 * {

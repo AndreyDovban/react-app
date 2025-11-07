@@ -1,24 +1,23 @@
 import styles from './JournalForm.module.css';
-import { useState } from 'react';
 import { Button } from '../Button/Button';
 
-export function JournalForm() {
-	const [state, setState] = useState({ age: 31 });
+// {
+// 	title: 'Первая заметка',
+// 	date: new Date(),
+// 	text: 'Большое значение в горном туризме придается бытовому обустройству в походе, ведь все необходимое для жизнеобеспечения группы нужно нести с собой в рюкзаке и вес каждого килограмма ноши на высоте ощущается особенно сильно. Существует множество способов существенно облегчить вес рюкзака и тем самым высвободить силы для перехода.',
+// },
 
+export function JournalForm({ addItem }) {
 	const addJournalItem = e => {
 		e.preventDefault();
-		state.age++;
-		console.log(state);
-		setState({ ...state });
 
 		const formData = new FormData(e.target);
 		const formProps = Object.fromEntries(formData);
-		console.log(formProps);
+		addItem(formProps);
 	};
 
 	return (
 		<>
-			<div>{state.age}</div>
 			<form className={styles.journal_form} onSubmit={addJournalItem}>
 				<input type="text" name="title" />
 				<input type="date" name="date" />

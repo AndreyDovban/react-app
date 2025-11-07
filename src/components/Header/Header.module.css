@@ -1,3 +1,7 @@
 .header {
 	display: flex;
 }
+
+.logo {
+	min-height: 26px;
+}
