@@ -27,7 +27,7 @@ function App() {
 			...t,
 			{
 				title: item.title,
-				date: item.date ? new Date(item.date) : new Date(),
+				date: new Date(item.date),
 				text: item.post,
 				id: Math.random() + 1,
 			},

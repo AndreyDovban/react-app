@@ -3,3 +3,55 @@
 	flex-direction: column;
 	gap: var(--s-6);
 }
+
+.journal_form > div {
+	border-bottom: 1px solid #333;
+}
+
+.form_row {
+	display: flex;
+	align-items: center;
+	height: 40px;
+}
+
+.form_label {
+	cursor: pointer;
+
+	display: flex;
+	gap: var(--s-5);
+	align-items: center;
+
+	min-width: 150px;
+
+	font: var(--font-p3);
+	color: var(--text-secondary);
+}
+
+.input_title {
+	font: var(--font-h1);
+	color: var(--text-primary);
+
+	background: none;
+	border: none;
+	border-bottom: 1px solid #333;
+}
+
+.input {
+	flex-grow: 1;
+
+	font: var(--font-p3);
+	color: var(--text-primary);
+
+	background: none;
+	border: none;
+}
+
+.textarea {
+	resize: none;
+	border-bottom: 1px solid #333;
+}
+
+.invalid {
+	background: #340000;
+	border: 1px solid red;
+}
