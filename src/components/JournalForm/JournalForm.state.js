@@ -16,9 +16,9 @@ export function formReducer(state, action) {
 			return { ...state, values: INITIAL_STATE.values };
 
 		case 'SUBMIT': {
-			const titleValidity = action.payload.title?.trim().length;
-			const dateValidity = action.payload.date;
-			const postValidity = action.payload.post?.trim().length;
+			const titleValidity = state.values.title?.trim().length;
+			const dateValidity = state.values.date;
+			const postValidity = state.values.post?.trim().length;
 
 			return {
 				...state,

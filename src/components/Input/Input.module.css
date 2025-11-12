@@ -1,0 +1,23 @@
+.input {
+	width: 100%;
+
+	font: var(--font-p3);
+	color: var(--text-primary);
+
+	background: none;
+	border: none;
+}
+
+.input_title {
+	font: var(--font-h1);
+	color: var(--text-primary);
+
+	background: none;
+	border: none;
+	border-bottom: 1px solid #333;
+}
+
+.invalid {
+	background: #340000;
+	border: 1px solid red;
+}

@@ -1,28 +1,22 @@
 import styles from './App.module.css';
-import { useEffect, useState } from 'react';
-import { Header, JournalList, JournalAddButton, CartButton, JournalItem, JournalForm } from './components';
+import { Header, JournalList, JournalAddButton, JournalForm } from './components';
+import { useLocalStarage } from './hooks/useLocalStorage.hook';
 import { LeftPanel } from './layout/LeftPanel/LeftPanel';
 import { Body } from './layout/Body/Body';
 
+function mapItems(items) {
+	if (!items) {
+		return [];
+	}
+	return items.map(i => ({ ...i, date: new Date(i.date) }));
+}
+
 function App() {
-	const [items, setItems] = useState([]);
-
-	useEffect(() => {
-		const data = JSON.parse(localStorage.getItem('data'));
-		if (data) {
-			setItems(data.map(el => ({ ...el, date: new Date(el.date) })));
-		}
-	}, []);
-
-	useEffect(() => {
-		if (items.length) {
-			localStorage.setItem('data', JSON.stringify(items));
-		}
-	}, [items]);
+	const [items, setItems] = useLocalStarage('data');
 
 	const addItem = item => {
-		setItems(t => [
-			...t,
+		setItems([
+			...mapItems(items),
 			{
 				title: item.title,
 				date: new Date(item.date),
@@ -37,7 +31,7 @@ function App() {
 			<LeftPanel>
 				<Header />
 				<JournalAddButton />
-				<JournalList>{items}</JournalList>
+				<JournalList>{mapItems(items)}</JournalList>
 			</LeftPanel>
 
 			<Body>

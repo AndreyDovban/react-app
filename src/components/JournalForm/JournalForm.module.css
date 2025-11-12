@@ -37,7 +37,7 @@
 }
 
 .input {
-	flex-grow: 1;
+	width: 100%;
 
 	font: var(--font-p3);
 	color: var(--text-primary);

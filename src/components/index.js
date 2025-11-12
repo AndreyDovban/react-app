@@ -5,3 +5,4 @@ export * from './JournalList/JournalList';
 export * from './Header/Header';
 export * from './JournalAddButton/JournalAddButton';
 export * from './JournalForm/JournalForm';
+export * from './Input/Input';

@@ -1,19 +1,40 @@
 import styles from './JournalForm.module.css';
 import cn from 'classnames';
 import { Button } from '../Button/Button';
-import { useEffect, useReducer } from 'react';
+import { useEffect, useReducer, useRef } from 'react';
 import Archive from '../../assets/svg/archive.svg?react';
 import Calendar from '../../assets/svg/calendar.svg?react';
 import File from '../../assets/svg/file.svg?react';
 import { INITIAL_STATE, formReducer } from './JournalForm.state';
-
+import { Input } from '..';
 export function JournalForm({ addItem }) {
 	const [formState, dispatchForm] = useReducer(formReducer, INITIAL_STATE);
 	const { isValid, isFormReadyToSubmit, values } = formState;
+	const titleRef = useRef();
+	const dateRef = useRef();
+	const postRef = useRef();
+
+	const focusError = isValid => {
+		switch (true) {
+			case !isValid.title:
+				titleRef.current.focus();
+				break;
+			case !isValid.date:
+				dateRef.current.focus();
+				break;
+			case !isValid.post:
+				postRef.current.focus();
+				break;
+
+			default:
+				break;
+		}
+	};
 
 	useEffect(() => {
 		let timerId;
 		if (!isValid.title || !isValid.date || !isValid.post) {
+			focusError(isValid);
 			timerId = setTimeout(() => dispatchForm({ type: 'RESET_VALIDITY' }), 2000);
 		}
 		return () => {
@@ -26,6 +47,7 @@ export function JournalForm({ addItem }) {
 			addItem(values);
 			dispatchForm({ type: 'RESET_VALUES' });
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [isFormReadyToSubmit]);
 
 	const addJournalItem = e => {
@@ -41,12 +63,12 @@ export function JournalForm({ addItem }) {
 		<>
 			<form className={styles.journal_form} onSubmit={addJournalItem}>
 				<div>
-					<input
+					<Input
 						type="text"
 						name="title"
-						className={cn(styles.input_title, {
-							[styles.invalid]: !isValid.title,
-						})}
+						appearence="title"
+						isValid={isValid.title}
+						ref={titleRef}
 						value={values.title}
 						onChange={changeInput}
 					/>
@@ -58,13 +80,12 @@ export function JournalForm({ addItem }) {
 						<Calendar />
 						<span>Дата</span>
 					</label>
-					<input
+					<Input
 						id="date"
 						type="date"
 						name="date"
-						className={cn({
-							[styles.invalid]: !isValid.date,
-						})}
+						isValid={isValid.date}
+						ref={dateRef}
 						value={values.date}
 						onChange={changeInput}
 					/>
@@ -75,14 +96,7 @@ export function JournalForm({ addItem }) {
 						<File />
 						<span>Метка</span>
 					</label>
-					<input
-						id="tag"
-						type="text"
-						name="tag"
-						className={styles.input}
-						value={values.tag}
-						onChange={changeInput}
-					/>
+					<Input id="tag" type="text" name="tag" value={values.tag} onChange={changeInput} />
 				</div>
 
 				<textarea
@@ -93,6 +107,7 @@ export function JournalForm({ addItem }) {
 					className={cn(styles.input, styles.textarea, {
 						[styles.invalid]: !isValid.post,
 					})}
+					ref={postRef}
 					value={values.post}
 					onChange={changeInput}
 				></textarea>
