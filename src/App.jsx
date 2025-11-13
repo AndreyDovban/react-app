@@ -3,6 +3,7 @@ import { Header, JournalList, JournalAddButton, JournalForm } from './components
 import { useLocalStarage } from './hooks/useLocalStorage.hook';
 import { LeftPanel } from './layout/LeftPanel/LeftPanel';
 import { Body } from './layout/Body/Body';
+import { UserContextProvider } from './context/user.context-provider';
 
 function mapItems(items) {
 	if (!items) {
@@ -18,26 +19,27 @@ function App() {
 		setItems([
 			...mapItems(items),
 			{
-				title: item.title,
+				...item,
 				date: new Date(item.date),
-				text: item.post,
 				id: Math.random() + 1,
 			},
 		]);
 	};
 
 	return (
-		<div className={styles.app}>
-			<LeftPanel>
-				<Header />
-				<JournalAddButton />
-				<JournalList>{mapItems(items)}</JournalList>
-			</LeftPanel>
+		<UserContextProvider>
+			<div className={styles.app}>
+				<LeftPanel>
+					<Header />
+					<JournalAddButton />
+					<JournalList>{mapItems(items)}</JournalList>
+				</LeftPanel>
 
-			<Body>
-				<JournalForm addItem={addItem} />
-			</Body>
-		</div>
+				<Body>
+					<JournalForm addItem={addItem} />
+				</Body>
+			</div>
+		</UserContextProvider>
 	);
 }
 

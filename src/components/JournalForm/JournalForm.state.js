@@ -1,6 +1,6 @@
 export const INITIAL_STATE = {
 	isValid: { title: true, date: true, post: true },
-	values: { title: '', date: '', tag: '', post: '' },
+	values: { title: '', date: '', tag: '', post: '', userId: '' },
 	isFormReadyToSubmit: false,
 };
 

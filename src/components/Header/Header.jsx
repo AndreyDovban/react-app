@@ -1,6 +1,11 @@
 import styles from './Header.module.css';
-import Logo from '../../assets/svg/logo.svg?react';
+import { SelectUser } from '..';
 
 export function Header() {
-	return <Logo className={styles.logo} />;
+	return (
+		<>
+			<img src="/logo.svg" className={styles.logo} />
+			<SelectUser />
+		</>
+	);
 }
