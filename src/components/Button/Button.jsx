@@ -1,5 +1,11 @@
 import styles from './Button.module.css';
 
-export function Button({ text }) {
-	return <button className={styles.button}>{text}</button>;
+export function Button({ children, ...props }) {
+	console.log('Button');
+
+	return (
+		<button className={styles.button} {...props}>
+			{children}
+		</button>
+	);
 }

@@ -118,7 +118,7 @@ export function JournalForm({ addItem }) {
 				value={values.post}
 				onChange={changeInput}
 			></textarea>
-			<Button text={'Сохранить'} />
+			<Button>Сохранить</Button>
 		</form>
 	);
 }
